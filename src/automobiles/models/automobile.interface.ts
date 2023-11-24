@@ -18,6 +18,7 @@ export interface Automobile {
     safetyRatingAgency?: string;
     fuelType?: string;
     seatingCapacity?: string;
+    noOfAvailability?: number;
     createdAt?: Date;
     updatedAt?: Date;
 }

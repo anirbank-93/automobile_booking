@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AutomobilesModule } from './automobiles/automobiles.module';
+import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { AutomobilesModule } from './automobiles/automobiles.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    AutomobilesModule
+    AutomobilesModule,
+    BookingsModule
   ],
   controllers: [AppController],
   providers: [AppService],

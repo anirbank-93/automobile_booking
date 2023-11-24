@@ -31,6 +31,7 @@ export class AutomobileSeederService {
       safetyRatingAgency: 'Global (NCAP)',
       fuelType: 'Diesel',
       seatingCapacity: '5',
+      noOfAvailability: 1,
     });
 
     const automobile2 = this.automobileRepository.create({
@@ -53,6 +54,7 @@ export class AutomobileSeederService {
       //   safetyRatingAgency: 'Global (NCAP)',
       fuelType: 'Petrol & Hybrid',
       seatingCapacity: '7 & 8',
+      noOfAvailability: 1,
     });
 
     const automobile3 = this.automobileRepository.create({
@@ -75,6 +77,7 @@ export class AutomobileSeederService {
       safetyRatingAgency: 'Global (NCAP)',
       fuelType: 'Petrol',
       seatingCapacity: '5',
+      noOfAvailability: 1,
     });
 
     const automobile4 = this.automobileRepository.create({
@@ -97,6 +100,7 @@ export class AutomobileSeederService {
       //   safetyRatingAgency: 'Global (NCAP)',
       //   fuelType: 'Petrol',
       seatingCapacity: '2',
+      noOfAvailability: 1,
     });
 
     await this.automobileRepository.save(automobile1);

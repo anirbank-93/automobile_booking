@@ -79,6 +79,11 @@ export class AutomobileEntity {
     @IsNotEmpty()
     seatingCapacity: string;
 
+    @Column()
+    @IsNumber()
+    @IsNotEmpty()
+    noOfAvailability: number;
+
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
 
