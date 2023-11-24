@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
-import { SeederService } from './services/seeder.service';
+import { AutomobileSeederService } from './services/seeder.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+// Entities
+import { AutomobileEntity } from './models/automobile.entity';
 
 @Module({
-  providers: [SeederService]
+  imports: [TypeOrmModule.forFeature([AutomobileEntity])],
+  providers: [AutomobileSeederService]
 })
 export class AutomobilesModule {}
