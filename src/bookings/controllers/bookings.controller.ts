@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpStatus, Response } from '@nestjs/common';
 import { BookingsService } from '../services/bookings.service';
 import { Booking } from '../models/booking.interface';
 
@@ -7,14 +7,23 @@ export class BookingsController {
     constructor(private BookingService: BookingsService) {}
 
     @Post()
-    async create(@Body() bookingData: Booking): Promise<Booking> {
+    async create(@Body() bookingData: Booking, @Response() res): Promise<any> {
         let model = await this.BookingService.findOneBooking(bookingData.vehicleModel)
-        console.log(model);
+        console.log("check booking", model);
 
         if (!model) {
-             return this.BookingService.createBooking(bookingData);
+             let newBooking = this.BookingService.createBooking(bookingData);
+
+             return res.status(HttpStatus.CREATED).json({
+                status: true,
+                message: "New booking created.",
+                data: newBooking
+             })
         } else {
-            return model;
+            return res.status(HttpStatus.FORBIDDEN).json({
+                status: false,
+                message: "This vehicle is not available."
+            });
         }
     }
 }
